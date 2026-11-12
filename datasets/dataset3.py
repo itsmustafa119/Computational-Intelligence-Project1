@@ -1,18 +1,26 @@
 import matplotlib.pyplot as plt
 from sklearn.datasets import make_blobs
 
-X, y = make_blobs(
-    n_samples=300,
-    n_features=2,
-    centers=3,
-    cluster_std=1.0,
-    random_state=119
-)
 
-plt.scatter(X[:, 0], X[:, 1], c=y, cmap="viridis")
-plt.xlabel("Feature 1")
-plt.ylabel("Feature 2")
-plt.title("Dataset 3 - Blobs")
-plt.show()
+class Dataset3:
+    def create(self):    
+        self.X, self.y = make_blobs(
+                n_samples=300,
+                n_features=2,
+                centers=3,
+                cluster_std=1.0,
+                random_state=119
+            )
+        return self.X, self.y
+          
+    def draw(self):
+        plt.scatter(self.X[:, 0], self.X[:, 1], c=self.y, cmap="coolwarm")
 
-plt.savefig("outputs/dataset3_scatter_plot", dpi = 300, bbox_inches = "tight")
+        plt.xlabel("Feature 1")
+        plt.ylabel("Feature 2")
+        plt.title("Dataset 1 - Linear Classification")
+    def show():
+        plt.show()
+
+    def save():
+        plt.savefig("outputs/dataset1_scatter_plot", dpi = 300, bbox_inches = "tight")
