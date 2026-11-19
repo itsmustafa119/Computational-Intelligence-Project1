@@ -1,0 +1,24 @@
+MLP Stage 3 Results
+------------------
+Input neurons: 2
+Hidden neurons: 4
+Output neurons: 1
+Learning rate: 0.1
+Activation: Sigmoid
+Loss function: SSE
+Optimizer: SGD
+Epochs: 1000
+Final training loss: 0.0012258566225940382
+Test accuracy: 1.0
+
+Dataset Settings
+------------------
+Dataset: make_circles
+Samples: 300
+Noise: 0.05
+Factor: 0.5
+Dataset random_state: 119
+Train-test ratio: 80/20
+Split random_state: 7349
+Stratify: True
+Initialization seed: 5
