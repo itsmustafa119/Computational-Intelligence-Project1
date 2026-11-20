@@ -29,22 +29,53 @@ class Perceptron:
         return self.sigmoid(z)
 
     def error_correction(self, X_train, y_train, epochs=100):
+
+        error_history = []
         for epoch in range(epochs):
             for x, y in zip(X_train, y_train):    
                 output = self.predict_step(x[0], x[1])
                 error = y - output
+
+
                 X = np.array([x[0], x[1], -1])
+
+
                 self.weights += self.learning_rate * error * X
+
+            mistakes = 0
+
+            for x, y in zip(X_train, y_train):
+                output = self.predict_step(x[0], x[1])
+
+                if output != y:
+                    mistakes += 1
+
+            error_history.append(mistakes)
+
+        return error_history
                  
 
     def generalized_delta(self, X_train, y_train, epochs=100):
+
+        error_history = []
         for epoch in range(epochs):
             for x, y in zip(X_train, y_train):
-                output = self.predict_step(x[0], x[1])
+                output = self.predict_sigmoid(x[0], x[1])
                 X = np.array([x[0], x[1], -1])
                 error = y - output
                 delta = error * output * (1 - output)
                 self.weights += self.learning_rate * delta * X
+
+            total_error = 0
+
+            for x, y in zip(X_train, y_train):
+                output = self.predict_sigmoid(x[0], x[1])
+
+                total_error += 0.5 * (y - output) ** 2
+
+            error_history.append(total_error)
+
+        return error_history
                  
 
     
