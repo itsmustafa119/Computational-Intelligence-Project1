@@ -1,0 +1,4 @@
+﻿Initialization,Final Training Loss,Test Accuracy
+All weights zero,0.20354405310331378,0.55
+"Uniform [-5, 5]",0.0012975263990810373,1.0
+"Uniform [-10, 10]",0.0004923221171613168,1.0
